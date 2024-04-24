@@ -1,2 +1,2 @@
 # LinkedList
-building a LinkedList using JavaScript
+Building a LinkedList using JavaScript.

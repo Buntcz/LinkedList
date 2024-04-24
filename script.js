@@ -133,6 +133,37 @@ toString() {
     console.log(result);
 }
 
+InsertAt(data, position) {
+    let  newNode = new Node(data);
+    if(position === 1) {
+        newNode.next = this.head;
+        this.head = newNode;
+        return;
+    }
+    let current = this.head;
+    let i = 0;
+    while(i < position - 1 && current) {
+        current = current.next;
+        i++;
+    }
+    if(current) {
+        newNode.next = current.next;
+        current.next = newNode;
+    }
+}
+
+removeAt(index) {
+    if(index < 0 || index >= this.length) return null;
+    if(index === 0) return this.pop();
+    let current = this.head;
+    for(let i = 0; i < index - 1; i++) {
+        current = current.next
+    }
+    current.next = current.next.next;
+    this.length--
+    return this;
+}
+
    printAll() {
     let current = this.head;
     while(current) {
@@ -156,3 +187,5 @@ list.size();
 list.contains("node0")
 list.find("node0");
 list.toString();
+list.InsertAt("node3", 2);
+list.printAll()
